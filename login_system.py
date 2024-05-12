@@ -1,7 +1,8 @@
 """LOGIN SYSTEM"""
-#Logs in the user as admin/user or signs them up as user
+# Logs in the user as admin/user or signs them up as user
 import pandas as pd
 import sys
+
 
 def login(user_df, admin_df):
     
@@ -10,30 +11,30 @@ def login(user_df, admin_df):
     specialCharacters = "!@#$%^&*()-+?_=,<>/"
     check = 0
     
-    #Menu
+    # Menu
     while check == 0:
         menu = int(input("Please enter: \n1. If you wish to login as an administrator.\n2. If you wish to login as a user.\n3. If you wish to create an account.\n...\n"))
-        if menu >= 1 and menu <= 3:
+        if 1 <= menu <= 3:
             check = 1
         else:
             print("Input must be 1, 2 or 3...")
        
-    #Admin login
+    # Admin login
     if menu == 1:
-        #flags
+        # flags
         correct_username = 0
         correct_password = 0
         pw_check = 0
         error = 0
         
-        #columns with the data we need
-        udata = admin_df.loc[:,["id", "username", "password"]]
+        # columns with the data we need
+        udata = admin_df.loc[:, ["id", "username", "password"]]
         
         while correct_username == 0:
             username = (input("Please enter your username: "))
             
             for ID, name, pword in udata.itertuples(index=False):
-                #If password and username are correct change flags and save ID
+                # If password and username are correct change flags and save ID
                 if username == name:
                     correct_username = 1
                     while pw_check == 0:
@@ -59,22 +60,22 @@ def login(user_df, admin_df):
             print("Welcome, "+username+"!")   
         return user_df, logged_in
         
-    #User login
+    # User login
     elif menu == 2:
-        #flags
+        # flags
         correct_username = 0
         correct_password = 0
         pw_check = 0
         error = 0
         
-        #columns with the data we need
-        udata = user_df.loc[:,["id", "username", "password"]]
+        # columns with the data we need
+        udata = user_df.loc[:, ["id", "username", "password"]]
         
         while correct_username == 0:
             username = (input("Please enter your username: "))
             
             for ID, name, pword in udata.itertuples(index=False):
-                #If password and username are correct change flags and save ID
+                # If password and username are correct change flags and save ID
                 if username == name:
                     correct_username = 1
                     while pw_check == 0:
@@ -99,15 +100,14 @@ def login(user_df, admin_df):
         if not logged_in == 0:
             print("Welcome, "+username+"!")   
         return user_df, logged_in
-     
 
-    #User registration
+    # User registration
     else:
         correct_username = 0
         correct_password = 0
         containsSpecialCharacter = 0
         passwordLength = 0
-        udata = user_df.loc[:,["id", "username", "password"]]
+        udata = user_df.loc[:, ["id", "username", "password"]]
         
         while correct_username == 0:
             unique = 1
@@ -131,7 +131,7 @@ def login(user_df, admin_df):
             for ID, name, pword in udata.itertuples(index=False):
                 if password == pword:
                     unique = 0
-            if unique == 1 and containsSpecialCharacter == 1 and passwordLength ==1:
+            if unique == 1 and containsSpecialCharacter == 1 and passwordLength == 1:
                 correct_password = 1
             else:
                 print("Password must be unique, have at least 8 characters and 1 special character, please enter a new password.")
@@ -140,7 +140,7 @@ def login(user_df, admin_df):
         
         if not password == password_ver:
             print("Passwords must much! exiting...")
-            sys.exit
+            sys.exit()
         else:
             for ID, name, pword in udata.itertuples(index=False):
                 new_id = ID+1
@@ -180,7 +180,7 @@ def login(user_df, admin_df):
                     
                     registered = 1
             
-            return_df = user_df.append(register_df, ignore_index = True)
+            return_df = user_df.append(register_df, ignore_index=True)
             
-            print("Registered Succesfully!")
+            print("Registered Successfully!")
             return return_df, logged_in

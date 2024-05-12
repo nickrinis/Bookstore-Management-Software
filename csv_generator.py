@@ -1,8 +1,9 @@
 """CSV GENERATOR"""
-#Generates the necessary csv files at the start of the program if necessary.
+# Generates the necessary csv files at the start of the program if necessary.
 
 import os.path
 import pandas as pd
+
 
 def create_CSV():
     filename_1 = 'user.csv'
@@ -12,20 +13,19 @@ def create_CSV():
     if not os.path.exists(filename_1):
         
         header = ['id', 'username', 'password', 'address', 'city', 'orders', 'favorites', 'balance']
-        data = [[10,'Alex', 'felina@19', 'Roseburn', 'Edinburgh', [142, 132], [106, 141, 107, 108], 180.0], 
-                [11,'Nick', '2118159!', 'Krustallophghs 4', 'Lamia', [115, 141], [101, 102, 103, 104, 105, 139], 100.0],
-                [12,'Alexandros', '1617#2198', 'Miaoulh 10', 'Athens', [149, 150], [117, 130, 144], 50.0],
-                [13,'Irene', '!vidi1234', 'Miaoulh 10', 'Athens', [112, 113], [116], 180.0],
-                [14,'Panos', 'Koump7#4321', 'Amarousiou 24', 'Athens', [133, 134, 135], [120, 123, 124, 105], 80.0]]
+        data = [[10, 'George', '123456@', 'Waverley Court', 'Edinburgh', [142, 132], [106, 141, 107, 108], 180.0],
+                [11, 'Nick', '2118159!', 'Kristallopigis', 'Lamia', [115, 141], [101, 102, 103, 104, 105, 139], 100.0],
+                [12, 'Alexandros', '1617#2198', 'Miaouli', 'Athens', [149, 150], [117, 130, 144], 50.0],
+                [13, 'Irene', '!vidi1234', 'Miaouli 10', 'Athens', [112, 113], [116], 180.0],
+                [14, 'Panos', 'Koump7#4321', 'Amarousiou 24', 'Athens', [133, 134, 135], [120, 123, 124, 105], 80.0]]
         
         pd_user = pd.DataFrame(data, columns=header)
         
-        #opening the file in write mode
+        # opening the file in write mode
         with open(filename_1, 'w', newline=""):
             pd_user.to_csv(filename_1, index=False)
-            
-            
-    if not os.path.exists(filename_2): 
+
+    if not os.path.exists(filename_2):
        
         header = ['id', 'username', 'password', 'bookstores']
         admin1 = [1, 2, 5]
@@ -35,11 +35,10 @@ def create_CSV():
         
         pd_admin = pd.DataFrame(data, columns=header)
         
-        #opening the file in write mode
+        # opening the file in write mode
         with open(filename_2, 'w', newline=""):
             pd_admin.to_csv(filename_2, index=False)
-            
-        
+
     if not os.path.exists(filename_3): 
         
         header = ['id', 'title', 'author', 'publisher', 'categories', 'cost', 'shipping_cost', 'availability', 'copies', 'bookstores', 'rating']
@@ -47,7 +46,7 @@ def create_CSV():
                 [102, 'Percy Jackson and the Olympians: The Sea of Monsters', 'Rick Riordan', 'Disney Hyperion', ['Fantasy'], 22.3, 2.25, True, 18, {1: 10, 2: 3, 5: 5}, None],
                 [103, 'Percy Jackson and the Olympians: The Titans Curse', 'Rick Riordan', 'Disney Hyperion', ['Fantasy'], 23.4, 2.25, True, 9, {2: 3, 5: 6}, None],
                 [104, 'Percy Jackson and the Olympians: The Battle of the Labyrinth', 'Rick Riordan', 'Disney Hyperion', ['Fantasy'], 20.0, 2.25, True, 12, {1: 2, 2: 3, 5: 20}, None],
-                [105, 'Percy Jackson and the Olympians: The Last Olympian', 'Rick Riordan', 'Disney Hyperion', ['Fantasy'], 25.5, 2.25, True, 21, {1: 10, 2: 3, 5: 8}, {'Nick':'4, Overwhelming finale to an amazing series!'}],
+                [105, 'Percy Jackson and the Olympians: The Last Olympian', 'Rick Riordan', 'Disney Hyperion', ['Fantasy'], 25.5, 2.25, True, 21, {1: 10, 2: 3, 5: 8}, {'Nick': '4, Overwhelming finale to an amazing series!'}],
                 
                 [106, 'The Lord of the Rings: The fellowship of the Ring', 'J.R.R Tolkien', 'Allen & Unwin', ['Fantasy', 'Adventure'], 20.0, 2.25, True, 21, {3: 10, 4: 3, 5: 8}, None],
                 [107, 'The Lord of the Rings: The Two Towers', 'J.R.R Tolkien', 'Allen & Unwin', ['Fantasy', 'Adventure'], 22.3, 3, True, 18, {1: 10, 2: 3, 5: 5}, None],
@@ -56,8 +55,8 @@ def create_CSV():
                 
                 [110, 'Harry Potter and the Philosophers stone', 'J.K Rowling', 'Bloomsbury Publishing', ['Fantasy'], 10.0, 4.0, True, 21, {1: 10, 2: 3, 5: 8}, None],
                 [111, 'Harry Potter and the Chamber of Secrets', 'J.K Rowling', 'Bloomsbury Publishing', ['Fantasy'], 10.0, 4.0, True, 30, {1: 10, 2: 3, 5: 17}, None],
-                [112, 'Harry Potter and the Prisoner of Azkaban', 'J.K Rowling', 'Bloomsbury Publishing', ['Fantasy'], 10.0, 4.0, True, 10, {1: 1, 2: 3, 3: 1, 4: 4, 5:1}, None],
-                [113, 'Harry Potter and the Goblet of fire', 'J.K Rowling', 'Bloomsbury Publishing', ['Fantasy'], 10.0, 4.0, False, 0, {1: 0, 2:0, 3: 0, 5: 0}, None],
+                [112, 'Harry Potter and the Prisoner of Azkaban', 'J.K Rowling', 'Bloomsbury Publishing', ['Fantasy'], 10.0, 4.0, True, 10, {1: 1, 2: 3, 3: 1, 4: 4, 5: 1}, None],
+                [113, 'Harry Potter and the Goblet of fire', 'J.K Rowling', 'Bloomsbury Publishing', ['Fantasy'], 10.0, 4.0, False, 0, {1: 0, 2: 0, 3: 0, 5: 0}, None],
                 [114, 'Harry Potter and the Order of the Phoenix', 'J.K Rowling', 'Bloomsbury Publishing', ['Fantasy'], 12.5, 4.0, True, 18, {4: 10, 5: 8}, None],
                 [115, 'Harry Potter and the Half-Blood Prince', 'J.K Rowling', 'Bloomsbury Publishing', ['Fantasy'], 12.5, 4.0, True, 3, {1: 1, 5: 2}, None],
                 [116, 'Harry Potter and the Deathly Hallows', 'J.K Rowling', 'Bloomsbury Publishing', ['Fantasy'], 13.0, 3.0, True, 42, {2: 10, 3: 26, 4: 6}, None],
@@ -80,15 +79,15 @@ def create_CSV():
                 [130, 'City of Lost Souls', 'Cassandra Clare', 'Margaret K. McElderry', ['Paranormal'], 25.5, 2.25, True, 21, {1: 10, 2: 3, 5: 8}, None],
                 [131, 'City of Heavenly Fire', 'Cassandra Clare', 'Margaret K. McElderry', ['Paranormal'], 20.0, 2.25, True, 21, {3: 10, 4: 3, 5: 8}, None],
                 
-                [132, 'The Gunslinger', 'Stephen King', 'Grant', ['Science Fiction','Fantasy'], 22.3, 3, True, 18, {1: 10, 2: 3, 5: 5}, None],
-                [133, 'The Drawing of the Three', 'Stephen King', 'Grant', ['Science Fiction','Fantasy'], 25.5, 1.5, True, 30, {1: 10, 3: 3, 4: 17}, None],
-                [134, 'The Waste Lands', 'Stephen King', 'Grant', ['Science Fiction','Fantasy'], 15.0, 2.25, False, 0, {1: 0, 2: 0, 5: 0}, None],
-                [135, 'Wizard and Glass', 'Stephen King', 'Grant', ['Science Fiction','Fantasy'], 10.0, 4.0, True, 21, {1: 10, 2: 3, 5: 8}, None],
-                [136, 'The Litle Sisters of Eluria', 'Stephen King', 'Grant', ['Science Fiction','Fantasy'], 10.0, 4.0, True, 30, {1: 10, 2: 3, 5: 17}, None],
-                [137, 'Wolves of the Calla', 'Stephen King', 'Grant', ['Science Fiction','Fantasy'], 10.0, 4.0, True, 10, {1: 1, 2: 3, 3: 1, 4: 4, 5:1}, None],
-                [138, 'Song of Susannah', 'Stephen King', 'Grant', ['Science Fiction','Fantasy'], 10.0, 4.0, False, 0, {1: 0, 2:0, 3: 0, 5: 0}, None],
-                [139, 'The Dark Tower', 'Stephen King', 'Grant', ['Science Fiction','Fantasy'], 12.5, 4.0, True, 18, {4: 10, 5: 8}, None],
-                [140, 'The Wind Through the Keyhole', 'Stephen King', 'Grant', ['Science Fiction','Fantasy'], 12.5, 4.0, True, 3, {1: 1, 5: 2}, None],
+                [132, 'The Gunslinger', 'Stephen King', 'Grant', ['Science Fiction', 'Fantasy'], 22.3, 3, True, 18, {1: 10, 2: 3, 5: 5}, None],
+                [133, 'The Drawing of the Three', 'Stephen King', 'Grant', ['Science Fiction', 'Fantasy'], 25.5, 1.5, True, 30, {1: 10, 3: 3, 4: 17}, None],
+                [134, 'The Waste Lands', 'Stephen King', 'Grant', ['Science Fiction', 'Fantasy'], 15.0, 2.25, False, 0, {1: 0, 2: 0, 5: 0}, None],
+                [135, 'Wizard and Glass', 'Stephen King', 'Grant', ['Science Fiction', 'Fantasy'], 10.0, 4.0, True, 21, {1: 10, 2: 3, 5: 8}, None],
+                [136, 'The Little Sisters of Eluria', 'Stephen King', 'Grant', ['Science Fiction', 'Fantasy'], 10.0, 4.0, True, 30, {1: 10, 2: 3, 5: 17}, None],
+                [137, 'Wolves of the Calla', 'Stephen King', 'Grant', ['Science Fiction', 'Fantasy'], 10.0, 4.0, True, 10, {1: 1, 2: 3, 3: 1, 4: 4, 5: 1}, None],
+                [138, 'Song of Susannah', 'Stephen King', 'Grant', ['Science Fiction', 'Fantasy'], 10.0, 4.0, False, 0, {1: 0, 2: 0, 3: 0, 5: 0}, None],
+                [139, 'The Dark Tower', 'Stephen King', 'Grant', ['Science Fiction', 'Fantasy'], 12.5, 4.0, True, 18, {4: 10, 5: 8}, None],
+                [140, 'The Wind Through the Keyhole', 'Stephen King', 'Grant', ['Science Fiction', 'Fantasy'], 12.5, 4.0, True, 3, {1: 1, 5: 2}, None],
                 
                 [141, 'Around the World in Eighty Days', 'Jules Verne', 'Pierre-Jules Hetzel', ['Adventure'], 13.0, 3.0, True, 42, {2: 10, 3: 26, 4: 6}, {'Alex': '5, What an amazing journey!'}],
                 [142, 'From the Earth to the Moon', 'Jules Verne', 'Pierre-Jules Hetzel', ['Science Fiction'], 12.25, 2.25, True, 14, {1: 10, 2: 3, 5: 1}, None],
@@ -106,6 +105,6 @@ def create_CSV():
         
         pd_books = pd.DataFrame(data, columns=header)
         
-        #opening the file in write mode
+        # opening the file in write mode
         with open(filename_3, 'w', newline=""):
             pd_books.to_csv(filename_3, index=False)

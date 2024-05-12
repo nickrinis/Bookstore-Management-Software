@@ -2,6 +2,7 @@
 import pandas as pd
 from user_use_cases import csvEntry, singleEntry, editData, emptyFavorites, checkBalance, checkBookAvail, checkOrders, editOrders, checkCopies, getSuggestions, makeComment
 
+
 def userMenu(user_df, books_df, logged_in):
     menu = 1
     
@@ -24,7 +25,7 @@ def userMenu(user_df, books_df, logged_in):
         
         if menu == 1:
             csvEntry(user_df, books_df, logged_in)
-            #reading the reloaded csv file
+            # Reading the reloaded csv file
             user_df = pd.read_csv("user.csv")
             print("***************************************************************")
         

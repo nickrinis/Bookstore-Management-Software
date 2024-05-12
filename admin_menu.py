@@ -2,6 +2,7 @@
 import pandas as pd
 from admin_use_cases import singleEntry, csvEntry, dataEdit, deleteEntry, exportToCSV, checkAvailability, checkAvailabilityPerBookstore, bookCost, totalCost, generateGraph, deleteUser, deleteComment
 
+
 def adminMenu(user_df, admin_df, books_df, logged_in):
     menu = 1
     
@@ -25,7 +26,7 @@ def adminMenu(user_df, admin_df, books_df, logged_in):
         
         if menu == 1:
             csvEntry(books_df)
-            #reading the reloaded csv file
+            # reading the reloaded csv file
             books_df = pd.read_csv("books.csv")
             print("****************************************************************************")
         
